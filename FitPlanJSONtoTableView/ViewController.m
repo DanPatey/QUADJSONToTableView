@@ -16,12 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.jsonArray = [[NSArray alloc] init];
+    [self makeJSONRequest];
 }
 
-
-- (void)viewWillAppear:(BOOL)animated {
-    NSLog(@"ViewWillAppear has fired");
+- (void)makeJSONRequest {
     NSString *planJSON = @"http://input.fitplanapp.com/fitplan-server/v2/plans?locale=en";
     
     // Build the request and send it async
@@ -32,18 +31,45 @@
         {
             // Parse our JSON response into an array
             NSError *parseError = nil;
-            NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data
+            _jsonArray = [NSJSONSerialization JSONObjectWithData:data
                                                         options:0
                                                         error:&parseError];
-            
             if (!parseError) {
-                NSLog(@"json array is %@", jsonArray);
+                NSLog(@"JSON Response: %@", _jsonArray);
             } else {
                 NSString *err = [parseError localizedDescription];
                 NSLog(@"Encountered an error parsing: @", err);
             }
         }];
     [messageTask resume];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Loaded cellForRowAtIndexPath");
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MsgCell" forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MsgCell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
+    NSDictionary *message = (NSDictionary *)[[_jsonArray objectAtIndex:indexPath.row] objectForKey:@"name"];
+    
+    NSString *byLabel = [NSString stringWithFormat:@"%@ %@", [message objectForKey:@"athleteFirstName"], [message objectForKey:@"athleteLastName"]];
+    NSLog(@"%@", byLabel);
+    
+    cell.textLabel.text = [message objectForKey:@"name"];
+//    cell.textLabel.text = @"This Is TextLabel";
+    cell.detailTextLabel.text = byLabel;
+//    cell.detailTextLabel.text = @"This is DetailText";
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"numberOfRowsInSection fired");
+    return [_jsonArray count];
 }
 
 @end
