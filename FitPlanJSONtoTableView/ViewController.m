@@ -9,7 +9,6 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
 @end
 
 @implementation ViewController
@@ -35,11 +34,13 @@
                                                         options:0
                                                         error:&parseError];
             if (!parseError) {
-                NSLog(@"JSON Response: %@", _jsonArray);
+//                NSLog(@"JSON Response: %@", _jsonArray);
             } else {
                 NSString *err = [parseError localizedDescription];
                 NSLog(@"Encountered an error parsing: @", err);
             }
+            
+            [self.tableView reloadData];
         }];
     [messageTask resume];
 }
