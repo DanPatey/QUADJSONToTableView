@@ -58,7 +58,6 @@
     NSDictionary *message = (NSDictionary *)[_jsonArray objectAtIndex:indexPath.row];
     
     NSString *byLabel = [NSString stringWithFormat:@"%@ %@", [message objectForKey:@"athleteFirstName"], [message objectForKey:@"athleteLastName"]];
-    NSLog(@"%@", byLabel);
     
     cell.textLabel.text = [message objectForKey:@"name"];
     cell.detailTextLabel.text = byLabel;
