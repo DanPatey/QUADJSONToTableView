@@ -28,48 +28,45 @@
     NSURLSessionTask *messageTask = [session dataTaskWithURL:msgURL completionHandler:^
                                      (NSData *data, NSURLResponse * response, NSError * error)
         {
-            // Parse our JSON response into an array
+            // Parse our JSON response into an dictionary
             NSError *parseError = nil;
-            _jsonArray = [NSJSONSerialization JSONObjectWithData:data
+            NSDictionary *rawResponse = [NSJSONSerialization JSONObjectWithData:data
                                                         options:0
                                                         error:&parseError];
-            if (!parseError) {
+//            if (!parseError) {
 //                NSLog(@"JSON Response: %@", _jsonArray);
-            } else {
-                NSString *err = [parseError localizedDescription];
-                NSLog(@"Encountered an error parsing: @", err);
-            }
+//            } else {
+//                NSString *err = [parseError localizedDescription];
+//                NSLog(@"Encountered an error parsing: @", err);
+//            }
             
+            // Pop out results
+            _jsonArray = [rawResponse valueForKey:@"result"];
             [self.tableView reloadData];
         }];
     [messageTask resume];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"Loaded cellForRowAtIndexPath");
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MsgCell" forIndexPath:indexPath];
-    
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MsgCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    NSDictionary *message = (NSDictionary *)[[_jsonArray objectAtIndex:indexPath.row] objectForKey:@"name"];
+    NSDictionary *message = (NSDictionary *)[_jsonArray objectAtIndex:indexPath.row];
     
     NSString *byLabel = [NSString stringWithFormat:@"%@ %@", [message objectForKey:@"athleteFirstName"], [message objectForKey:@"athleteLastName"]];
     NSLog(@"%@", byLabel);
     
     cell.textLabel.text = [message objectForKey:@"name"];
-//    cell.textLabel.text = @"This Is TextLabel";
     cell.detailTextLabel.text = byLabel;
-//    cell.detailTextLabel.text = @"This is DetailText";
     
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"numberOfRowsInSection fired");
     return [_jsonArray count];
 }
 
