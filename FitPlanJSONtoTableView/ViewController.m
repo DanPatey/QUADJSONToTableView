@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DetailViewController.h"
 #import "NetworkingHelper.h"
 
 @interface ViewController ()
@@ -15,6 +16,7 @@
 @implementation ViewController
 
 NSArray *jsonResponse;
+NSString *localCourseID;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,7 +31,7 @@ NSArray *jsonResponse;
     }];
 }
 
-#pragma mark - tableView
+#pragma mark - tableView, rowSelection
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -53,17 +55,18 @@ NSArray *jsonResponse;
     return [jsonResponse count];
 }
 
-#pragma mark - detailViewSegues
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *jsonDictionary = (NSDictionary *)[jsonResponse objectAtIndex:indexPath.row];
+    localCourseID = [NSString stringWithFormat:@"%@", [jsonDictionary objectForKey:@"id"]];
     [self performSegueWithIdentifier:@"DetailSegue" sender:self];
 }
 
+#pragma mark - segues
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"DetailSegue"]) {
-//        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-//        NSDictionary *message = (NSDictionary *)[jsonResponse objectAtIndex:path.row];
-//        NSString *courseID = [NSString stringWithFormat:@"%@", [message objectForKey:@"id"]];
+        DetailViewController *destViewController = [segue destinationViewController];
+        destViewController.courseID = localCourseID;
     }
 }
 

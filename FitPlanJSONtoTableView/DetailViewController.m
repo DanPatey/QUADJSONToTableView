@@ -14,10 +14,12 @@
 
 @implementation DetailViewController
 
+@synthesize courseID;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    NSLog(@"%@", courseID);
 }
 
 #pragma mark - Navigation

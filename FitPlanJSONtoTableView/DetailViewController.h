@@ -10,4 +10,6 @@
 
 @interface DetailViewController : UIViewController
 
+@property (atomic, strong) NSString *courseID;
+
 @end
