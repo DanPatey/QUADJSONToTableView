@@ -10,8 +10,6 @@
 
 @interface NetworkingHelper : NSObject
 
-@property (strong, atomic) NSArray *jsonArray;
-
-- (void)makeJSONRequest;
+- (void)getJSONResponse:(NSString *)urlStr success:(void (^)(NSDictionary *responseDict))success failure:(void(^)(NSError *error))failure;
 
 @end

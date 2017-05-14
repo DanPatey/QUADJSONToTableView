@@ -10,30 +10,20 @@
 
 @implementation NetworkingHelper
 
-- (void)makeJSONRequest {
-    NSString *planJSON = @"http://input.fitplanapp.com/fitplan-server/v2/plans?locale=en";
+- (void)getJSONResponse:(NSString *)urlStr success:(void (^)(NSDictionary *responseDict))success failure:(void(^)(NSError *error))failure {
     
     // Build the request and send it async
-    NSURL *msgURL = [NSURL URLWithString:planJSON];
+    NSURL *url = [NSURL URLWithString:urlStr];
     NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionTask *messageTask = [session dataTaskWithURL:msgURL completionHandler:^
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url completionHandler:^
                                      (NSData *data, NSURLResponse * response, NSError * error) {
-         // Parse our JSON response into an dictionary
-         NSError *parseError = nil;
-         NSDictionary *rawResponse = [NSJSONSerialization JSONObjectWithData:data
-                                                                     options:0
-                                                                       error:&parseError];
-         if (!parseError) {
-             NSLog(@"JSON Response: %@", rawResponse);
-         } else {
-             NSString *err = [parseError localizedDescription];
-             NSLog(@"Encountered an error parsing: %@", err);
-         }
-         
-         // Pop out results
-         NSDictionary *jsonResponse = [rawResponse valueForKey:@"result"];
-     }];
-    [messageTask resume];
+                                         if (error) {
+                                             failure(error);
+                                         } else {
+                                             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                             success(json);
+                                         }
+                                     }];
+    [dataTask resume];
 }
-
 @end

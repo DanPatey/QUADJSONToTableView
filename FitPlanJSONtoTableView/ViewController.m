@@ -14,12 +14,19 @@
 
 @implementation ViewController
 
+NSArray *jsonResponse;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.jsonArray = [[NSArray alloc] init];
+    
     NetworkingHelper *networkHelper = [[NetworkingHelper alloc] init];
-    [networkHelper makeJSONRequest];
-    [self.tableView reloadData];
+    [networkHelper getJSONResponse:@"http://input.fitplanapp.com/fitplan-server/v2/plans?locale=en" success:^(NSDictionary *responseDict) {
+        jsonResponse = [responseDict valueForKey:@"result"];
+        NSLog(@"%@", jsonResponse);
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"ERROR: Unable to parse JSON");
+    }];
 }
 
 #pragma mark - tableView
@@ -32,7 +39,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    NSDictionary *message = (NSDictionary *)[_jsonArray objectAtIndex:indexPath.row];
+    NSDictionary *message = (NSDictionary *)[jsonResponse objectAtIndex:indexPath.row];
     
     NSString *byLabel = [NSString stringWithFormat:@"%@ %@", [message objectForKey:@"athleteFirstName"], [message objectForKey:@"athleteLastName"]];
     
@@ -43,7 +50,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_jsonArray count];
+    return [jsonResponse count];
 }
 
 #pragma mark - detailViewSegues
@@ -55,7 +62,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"DetailSegue"]) {
 //        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
-//        NSDictionary *message = (NSDictionary *)[_jsonArray objectAtIndex:path.row];
+//        NSDictionary *message = (NSDictionary *)[jsonResponse objectAtIndex:path.row];
 //        NSString *courseID = [NSString stringWithFormat:@"%@", [message objectForKey:@"id"]];
     }
 }

@@ -10,6 +10,4 @@
 
 @interface ViewController : UITableViewController <UITableViewDataSource>
 
-@property (strong, atomic) NSArray *jsonArray;
-
 @end
