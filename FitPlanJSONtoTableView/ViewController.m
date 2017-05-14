@@ -14,35 +14,38 @@
 @end
 
 @implementation ViewController
-
 NSArray *jsonResponse;
 NSString *localCourseID;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     NetworkingHelper *networkHelper = [[NetworkingHelper alloc] init];
-    [networkHelper getJSONResponse:@"http://input.fitplanapp.com/fitplan-server/v2/plans?locale=en" success:^(NSDictionary *responseDict) {
-        jsonResponse = [responseDict valueForKey:@"result"];
-        NSLog(@"%@", jsonResponse);
-        [self.tableView reloadData];
-    } failure:^(NSError *error) {
-        NSLog(@"ERROR: Unable to parse JSON");
-    }];
+    [networkHelper getJSONResponse:@"http://input.fitplanapp.com/fitplan-server/v2/plans?locale=en"
+        success:^(NSDictionary *responseDict) {
+           jsonResponse = [responseDict valueForKey:@"result"];
+           //        NSLog(@"%@", jsonResponse);
+           [self.tableView reloadData];
+        } failure:^(NSError *error) {
+           NSLog(@"ERROR: Unable to parse JSON");
+        }];
 }
 
 #pragma mark - tableView, rowSelection
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    // Create our cells
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MsgCell" forIndexPath:indexPath];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"MsgCell"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
+    // Break our raw response into a dictionary for easy parsing
     NSDictionary *message = (NSDictionary *)[jsonResponse objectAtIndex:indexPath.row];
-    
     NSString *byLabel = [NSString stringWithFormat:@"%@ %@", [message objectForKey:@"athleteFirstName"], [message objectForKey:@"athleteLastName"]];
     
     cell.textLabel.text = [message objectForKey:@"name"];
@@ -69,5 +72,4 @@ NSString *localCourseID;
         destViewController.courseID = localCourseID;
     }
 }
-
 @end

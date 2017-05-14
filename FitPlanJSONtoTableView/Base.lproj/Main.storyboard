@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -60,7 +62,7 @@
         <!--Detail View Controller-->
         <scene sceneID="bUJ-rO-ayn">
             <objects>
-                <viewController id="4x2-CJ-mJe" userLabel="Detail View Controller" sceneMemberID="viewController">
+                <viewController id="4x2-CJ-mJe" userLabel="Detail View Controller" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zpn-zR-ttp"/>
                         <viewControllerLayoutGuide type="bottom" id="DK4-Na-Wj9"/>
@@ -68,8 +70,54 @@
                     <view key="view" contentMode="scaleToFill" id="XD0-RT-DhA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vad-2o-3bM">
+                                <rect key="frame" x="36" y="196" width="303" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vad-2o-3bM" secondAttribute="height" multiplier="101:7" id="2h9-YA-fGe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kml-ni-Yxw">
+                                <rect key="frame" x="36" y="465" width="303" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Kml-ni-Yxw" secondAttribute="height" multiplier="101:7" id="4YP-n5-fwd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgQ-hY-rB9">
+                                <rect key="frame" x="36" y="304" width="303" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tgQ-hY-rB9" secondAttribute="height" multiplier="101:7" id="eo8-uM-bZ8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tgQ-hY-rB9" firstAttribute="top" secondItem="vad-2o-3bM" secondAttribute="bottom" constant="87" id="3XP-yc-p0E"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kml-ni-Yxw" secondAttribute="trailing" constant="20" id="AEX-tU-hlO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vad-2o-3bM" secondAttribute="trailing" constant="20" id="I2O-NC-tMg"/>
+                            <constraint firstItem="vad-2o-3bM" firstAttribute="top" secondItem="zpn-zR-ttp" secondAttribute="bottom" constant="132" id="P87-9F-37t"/>
+                            <constraint firstItem="DK4-Na-Wj9" firstAttribute="top" secondItem="Kml-ni-Yxw" secondAttribute="bottom" constant="181" id="PGc-Cm-5vM"/>
+                            <constraint firstItem="tgQ-hY-rB9" firstAttribute="leading" secondItem="XD0-RT-DhA" secondAttribute="leadingMargin" constant="20" id="dv8-RB-mgV"/>
+                            <constraint firstItem="vad-2o-3bM" firstAttribute="leading" secondItem="XD0-RT-DhA" secondAttribute="leadingMargin" constant="20" id="i75-Bt-FCy"/>
+                            <constraint firstItem="tgQ-hY-rB9" firstAttribute="centerX" secondItem="XD0-RT-DhA" secondAttribute="centerX" id="oLf-5r-lHU"/>
+                            <constraint firstItem="Kml-ni-Yxw" firstAttribute="leading" secondItem="XD0-RT-DhA" secondAttribute="leadingMargin" constant="20" id="qxW-ms-oDc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tgQ-hY-rB9" secondAttribute="trailing" constant="20" id="xQg-Ct-8m2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="Days" destination="Kml-ni-Yxw" id="Wp9-U9-g1a"/>
+                        <outlet property="Description" destination="tgQ-hY-rB9" id="OqW-Fa-Uu5"/>
+                        <outlet property="Name" destination="vad-2o-3bM" id="4ut-dH-VU0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GMA-lu-wdN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
