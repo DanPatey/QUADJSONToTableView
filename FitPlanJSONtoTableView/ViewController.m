@@ -26,7 +26,7 @@ NSString *localCourseID;
     [networkHelper getJSONResponse:@"http://input.fitplanapp.com/fitplan-server/v2/plans?locale=en"
         success:^(NSDictionary *responseDict) {
            jsonResponse = [responseDict valueForKey:@"result"];
-           //        NSLog(@"%@", jsonResponse);
+//           NSLog(@"%@", jsonResponse);
            [self.tableView reloadData];
         } failure:^(NSError *error) {
            NSLog(@"ERROR: Unable to parse JSON");
@@ -45,12 +45,11 @@ NSString *localCourseID;
     }
     
     // Break our raw response into a dictionary for easy parsing
-    NSDictionary *message = (NSDictionary *)[jsonResponse objectAtIndex:indexPath.row];
+    NSDictionary *message = (NSDictionary *)[jsonResponse objectAtIndex:indexPath.row];    
     NSString *byLabel = [NSString stringWithFormat:@"%@ %@", [message objectForKey:@"athleteFirstName"], [message objectForKey:@"athleteLastName"]];
     
     cell.textLabel.text = [message objectForKey:@"name"];
     cell.detailTextLabel.text = byLabel;
-    
     return cell;
 }
 

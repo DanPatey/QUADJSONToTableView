@@ -18,7 +18,7 @@
 @implementation DetailViewController
 @synthesize courseID;
 
-NSArray *jsonDetailResponse;
+NSDictionary *jsonDetailResponse;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,22 +29,19 @@ NSArray *jsonDetailResponse;
         jsonDetailResponse = [responseDict valueForKey:@"result"];
         NSLog(@"%@", jsonDetailResponse);
         
-        // Break our raw response into a dictionary for easy parsing
-        // THIS IS CAUSING A CRASH BECAUSE OF OBJECT AT INDEX
-        NSDictionary *message = (NSDictionary *)[jsonDetailResponse objectAtIndex:0];
-//        NSString *nameLabel = [NSString stringWithFormat:@"%@", [message objectForKey:@"name"]];
-//        NSString *descriptionLabel = [NSString stringWithFormat:@"%@", [message objectForKey:@"description"]];
-//        NSString *daysLabel = [NSString stringWithFormat:@"%@", [message objectForKey:@"daysPerWeek"]];
+        NSString *nameLabel = [NSString stringWithFormat:@"%@", [jsonDetailResponse objectForKey:@"name"]];
+        NSString *descriptionLabel = [NSString stringWithFormat:@"%@", [jsonDetailResponse objectForKey:@"description"]];
+        NSString *daysLabel = [NSString stringWithFormat:@"%@", [jsonDetailResponse objectForKey:@"daysPerWeek"]];
         
-//        _Name.text = nameLabel;
-//        _Description.text = descriptionLabel;
-//        _Days.text = daysLabel;
+        _Name.text = nameLabel;
+        _Description.text = descriptionLabel;
+        _Days.text = daysLabel;
 
     } failure:^(NSError *error) {
         NSLog(@"Error: %@", error);
     }];
     
-//    [self.view setNeedsDisplay];
+    [self.view setNeedsDisplay];
 }
 
 @end
