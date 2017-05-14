@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "NetworkingHelper.h"
 
 @interface ViewController ()
 @end
@@ -16,36 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.jsonArray = [[NSArray alloc] init];
-    [self makeJSONRequest];
+    NetworkingHelper *networkHelper = [[NetworkingHelper alloc] init];
+    [networkHelper makeJSONRequest];
+    [self.tableView reloadData];
 }
 
-- (void)makeJSONRequest {
-    NSString *planJSON = @"http://input.fitplanapp.com/fitplan-server/v2/plans?locale=en";
-    
-    // Build the request and send it async
-    NSURL *msgURL = [NSURL URLWithString:planJSON];
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionTask *messageTask = [session dataTaskWithURL:msgURL completionHandler:^
-                                     (NSData *data, NSURLResponse * response, NSError * error)
-        {
-            // Parse our JSON response into an dictionary
-            NSError *parseError = nil;
-            NSDictionary *rawResponse = [NSJSONSerialization JSONObjectWithData:data
-                                                        options:0
-                                                        error:&parseError];
-//            if (!parseError) {
-//                NSLog(@"JSON Response: %@", _jsonArray);
-//            } else {
-//                NSString *err = [parseError localizedDescription];
-//                NSLog(@"Encountered an error parsing: @", err);
-//            }
-            
-            // Pop out results
-            _jsonArray = [rawResponse valueForKey:@"result"];
-            [self.tableView reloadData];
-        }];
-    [messageTask resume];
-}
+#pragma mark - tableView
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -67,6 +44,20 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_jsonArray count];
+}
+
+#pragma mark - detailViewSegues
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"DetailSegue" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"DetailSegue"]) {
+//        NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+//        NSDictionary *message = (NSDictionary *)[_jsonArray objectAtIndex:path.row];
+//        NSString *courseID = [NSString stringWithFormat:@"%@", [message objectForKey:@"id"]];
+    }
 }
 
 @end

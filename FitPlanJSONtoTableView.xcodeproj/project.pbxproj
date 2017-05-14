@@ -13,6 +13,8 @@
 		57200EEB1EC63D2700B4D79A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57200EE91EC63D2700B4D79A /* Main.storyboard */; };
 		57200EED1EC63D2700B4D79A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57200EEC1EC63D2700B4D79A /* Assets.xcassets */; };
 		57200EF01EC63D2700B4D79A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57200EEE1EC63D2700B4D79A /* LaunchScreen.storyboard */; };
+		57200F021EC7B5C900B4D79A /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57200F011EC7B5C900B4D79A /* DetailViewController.m */; };
+		57200F051EC7C3A400B4D79A /* NetworkingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 57200F041EC7C3A400B4D79A /* NetworkingHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		57200EEC1EC63D2700B4D79A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57200EEF1EC63D2700B4D79A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57200EF11EC63D2700B4D79A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57200F001EC7B5C900B4D79A /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		57200F011EC7B5C900B4D79A /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		57200F031EC7C3A400B4D79A /* NetworkingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingHelper.h; sourceTree = "<group>"; };
+		57200F041EC7C3A400B4D79A /* NetworkingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,10 @@
 				57200EE41EC63D2700B4D79A /* AppDelegate.m */,
 				57200EE61EC63D2700B4D79A /* ViewController.h */,
 				57200EE71EC63D2700B4D79A /* ViewController.m */,
+				57200F001EC7B5C900B4D79A /* DetailViewController.h */,
+				57200F011EC7B5C900B4D79A /* DetailViewController.m */,
+				57200F031EC7C3A400B4D79A /* NetworkingHelper.h */,
+				57200F041EC7C3A400B4D79A /* NetworkingHelper.m */,
 				57200EE91EC63D2700B4D79A /* Main.storyboard */,
 				57200EEC1EC63D2700B4D79A /* Assets.xcassets */,
 				57200EEE1EC63D2700B4D79A /* LaunchScreen.storyboard */,
@@ -154,6 +164,8 @@
 				57200EE81EC63D2700B4D79A /* ViewController.m in Sources */,
 				57200EE51EC63D2700B4D79A /* AppDelegate.m in Sources */,
 				57200EE21EC63D2700B4D79A /* main.m in Sources */,
+				57200F051EC7C3A400B4D79A /* NetworkingHelper.m in Sources */,
+				57200F021EC7B5C900B4D79A /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
