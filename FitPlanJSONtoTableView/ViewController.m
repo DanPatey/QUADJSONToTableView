@@ -19,18 +19,16 @@ NSString *localCourseID;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
+    
     NetworkingHelper *networkHelper = [[NetworkingHelper alloc] init];
     [networkHelper getJSONResponse:@"http://input.fitplanapp.com/fitplan-server/v2/plans?locale=en"
-        success:^(NSDictionary *responseDict) {
-           jsonResponse = [responseDict valueForKey:@"result"];
-//           NSLog(@"%@", jsonResponse);
-           [self.tableView reloadData];
-        } failure:^(NSError *error) {
-           NSLog(@"ERROR: Unable to parse JSON");
-        }];
+                           success:^(NSDictionary *responseDict) {
+                               jsonResponse = [responseDict valueForKey:@"result"];
+//                               NSLog(@"%@", jsonResponse);
+                               [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
+                           } failure:^(NSError *error) {
+                               NSLog(@"ERROR: Unable to parse JSON");
+                           }];
 }
 
 #pragma mark - tableView, rowSelection
@@ -47,7 +45,6 @@ NSString *localCourseID;
     // Break our raw response into a dictionary for easy parsing
     NSDictionary *message = (NSDictionary *)[jsonResponse objectAtIndex:indexPath.row];    
     NSString *byLabel = [NSString stringWithFormat:@"%@ %@", [message objectForKey:@"athleteFirstName"], [message objectForKey:@"athleteLastName"]];
-    
     cell.textLabel.text = [message objectForKey:@"name"];
     cell.detailTextLabel.text = byLabel;
     return cell;

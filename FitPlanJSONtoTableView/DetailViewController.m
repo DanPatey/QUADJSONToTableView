@@ -11,12 +11,16 @@
 
 @interface DetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *Name;
-@property (weak, nonatomic) IBOutlet UILabel *Description;
+@property (weak, nonatomic) IBOutlet UITextView *Description;
 @property (weak, nonatomic) IBOutlet UILabel *Days;
 @end
 
 @implementation DetailViewController
 @synthesize courseID;
+
+NSString *nameLabel;
+NSString *descriptionLabel;
+NSString *daysLabel;
 
 NSDictionary *jsonDetailResponse;
 
@@ -27,21 +31,20 @@ NSDictionary *jsonDetailResponse;
     NetworkingHelper *networkHelper = [[NetworkingHelper alloc] init];
     [networkHelper getJSONResponse:requestURL success:^(NSDictionary *responseDict) {
         jsonDetailResponse = [responseDict valueForKey:@"result"];
-        NSLog(@"%@", jsonDetailResponse);
+//        NSLog(@"%@", jsonDetailResponse);
         
-        NSString *nameLabel = [NSString stringWithFormat:@"%@", [jsonDetailResponse objectForKey:@"name"]];
-        NSString *descriptionLabel = [NSString stringWithFormat:@"%@", [jsonDetailResponse objectForKey:@"description"]];
-        NSString *daysLabel = [NSString stringWithFormat:@"%@", [jsonDetailResponse objectForKey:@"daysPerWeek"]];
+        nameLabel = [NSString stringWithFormat:@"%@", [jsonDetailResponse objectForKey:@"name"]];
+        descriptionLabel = [NSString stringWithFormat:@"%@", [jsonDetailResponse objectForKey:@"description"]];
+        daysLabel = [NSString stringWithFormat:@"%@", [jsonDetailResponse objectForKey:@"daysPerWeek"]];
         
-        _Name.text = nameLabel;
-        _Description.text = descriptionLabel;
-        _Days.text = daysLabel;
-
+        dispatch_async(dispatch_get_main_queue(), ^ {
+            _Name.text = nameLabel;
+            _Description.text = descriptionLabel;
+            _Days.text = daysLabel;
+        });
     } failure:^(NSError *error) {
         NSLog(@"Error: %@", error);
     }];
-    
-    [self.view setNeedsDisplay];
 }
 
 @end
