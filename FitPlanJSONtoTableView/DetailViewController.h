@@ -12,6 +12,4 @@
 
 @property (atomic, strong) NSString *courseID;
 
-
-
 @end

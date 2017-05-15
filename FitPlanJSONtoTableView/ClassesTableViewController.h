@@ -8,5 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UITableViewController <UITableViewDataSource>
+@interface ClassesTableViewController : UITableViewController <UITableViewDataSource>
 @end

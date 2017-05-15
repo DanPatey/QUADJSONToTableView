@@ -6,14 +6,14 @@
 //  Copyright © 2017 Dan Patey. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "ClassesTableViewController.h"
 #import "DetailViewController.h"
 #import "NetworkingHelper.h"
 
-@interface ViewController ()
+@interface ClassesTableViewController ()
 @end
 
-@implementation ViewController
+@implementation ClassesTableViewController
 NSArray *jsonResponse;
 NSString *localCourseID;
 

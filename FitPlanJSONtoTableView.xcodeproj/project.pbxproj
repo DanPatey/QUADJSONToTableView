@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		57200EE21EC63D2700B4D79A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57200EE11EC63D2700B4D79A /* main.m */; };
 		57200EE51EC63D2700B4D79A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57200EE41EC63D2700B4D79A /* AppDelegate.m */; };
-		57200EE81EC63D2700B4D79A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57200EE71EC63D2700B4D79A /* ViewController.m */; };
+		57200EE81EC63D2700B4D79A /* ClassesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57200EE71EC63D2700B4D79A /* ClassesTableViewController.m */; };
 		57200EEB1EC63D2700B4D79A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57200EE91EC63D2700B4D79A /* Main.storyboard */; };
 		57200EED1EC63D2700B4D79A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57200EEC1EC63D2700B4D79A /* Assets.xcassets */; };
 		57200EF01EC63D2700B4D79A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57200EEE1EC63D2700B4D79A /* LaunchScreen.storyboard */; };
 		57200F021EC7B5C900B4D79A /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57200F011EC7B5C900B4D79A /* DetailViewController.m */; };
 		57200F051EC7C3A400B4D79A /* NetworkingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 57200F041EC7C3A400B4D79A /* NetworkingHelper.m */; };
+		57200F0C1EC937D600B4D79A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57200F0B1EC937D600B4D79A /* LoginViewController.m */; };
+		C05D168763CA039CA7793911 /* libPods-FitPlanJSONtoTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64E7DA5913B8B20D5516E0C1 /* libPods-FitPlanJSONtoTableView.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +24,8 @@
 		57200EE11EC63D2700B4D79A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		57200EE31EC63D2700B4D79A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		57200EE41EC63D2700B4D79A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		57200EE61EC63D2700B4D79A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		57200EE71EC63D2700B4D79A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		57200EE61EC63D2700B4D79A /* ClassesTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassesTableViewController.h; sourceTree = "<group>"; };
+		57200EE71EC63D2700B4D79A /* ClassesTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassesTableViewController.m; sourceTree = "<group>"; };
 		57200EEA1EC63D2700B4D79A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		57200EEC1EC63D2700B4D79A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57200EEF1EC63D2700B4D79A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -32,6 +34,11 @@
 		57200F011EC7B5C900B4D79A /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		57200F031EC7C3A400B4D79A /* NetworkingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingHelper.h; sourceTree = "<group>"; };
 		57200F041EC7C3A400B4D79A /* NetworkingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingHelper.m; sourceTree = "<group>"; };
+		57200F0A1EC937D600B4D79A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		57200F0B1EC937D600B4D79A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		57433BDBBDF481E944C31D1F /* Pods-FitPlanJSONtoTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitPlanJSONtoTableView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FitPlanJSONtoTableView/Pods-FitPlanJSONtoTableView.debug.xcconfig"; sourceTree = "<group>"; };
+		64E7DA5913B8B20D5516E0C1 /* libPods-FitPlanJSONtoTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FitPlanJSONtoTableView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B04DD9AB7466DE206DE68007 /* Pods-FitPlanJSONtoTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitPlanJSONtoTableView.release.xcconfig"; path = "Pods/Target Support Files/Pods-FitPlanJSONtoTableView/Pods-FitPlanJSONtoTableView.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +46,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C05D168763CA039CA7793911 /* libPods-FitPlanJSONtoTableView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38893B4E93367C56C016A38E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64E7DA5913B8B20D5516E0C1 /* libPods-FitPlanJSONtoTableView.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		57200ED41EC63D2700B4D79A = {
 			isa = PBXGroup;
 			children = (
 				57200EDF1EC63D2700B4D79A /* FitPlanJSONtoTableView */,
 				57200EDE1EC63D2700B4D79A /* Products */,
+				FCFA847E11643081D002FCE0 /* Pods */,
+				38893B4E93367C56C016A38E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,9 +113,9 @@
 		57200F081EC845DF00B4D79A /* Storyboards and Assets */ = {
 			isa = PBXGroup;
 			children = (
-				57200EEC1EC63D2700B4D79A /* Assets.xcassets */,
 				57200EE91EC63D2700B4D79A /* Main.storyboard */,
 				57200EEE1EC63D2700B4D79A /* LaunchScreen.storyboard */,
+				57200EEC1EC63D2700B4D79A /* Assets.xcassets */,
 			);
 			name = "Storyboards and Assets";
 			sourceTree = "<group>";
@@ -105,12 +123,23 @@
 		57200F091EC845FA00B4D79A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				57200EE61EC63D2700B4D79A /* ViewController.h */,
-				57200EE71EC63D2700B4D79A /* ViewController.m */,
+				57200F0A1EC937D600B4D79A /* LoginViewController.h */,
+				57200F0B1EC937D600B4D79A /* LoginViewController.m */,
+				57200EE61EC63D2700B4D79A /* ClassesTableViewController.h */,
+				57200EE71EC63D2700B4D79A /* ClassesTableViewController.m */,
 				57200F001EC7B5C900B4D79A /* DetailViewController.h */,
 				57200F011EC7B5C900B4D79A /* DetailViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FCFA847E11643081D002FCE0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57433BDBBDF481E944C31D1F /* Pods-FitPlanJSONtoTableView.debug.xcconfig */,
+				B04DD9AB7466DE206DE68007 /* Pods-FitPlanJSONtoTableView.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,9 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 57200EF41EC63D2700B4D79A /* Build configuration list for PBXNativeTarget "FitPlanJSONtoTableView" */;
 			buildPhases = (
+				91AFDD8E8FCE06A830DCB4BD /* [CP] Check Pods Manifest.lock */,
 				57200ED91EC63D2700B4D79A /* Sources */,
 				57200EDA1EC63D2700B4D79A /* Frameworks */,
 				57200EDB1EC63D2700B4D79A /* Resources */,
+				E9E7CED340CA33389548CB56 /* [CP] Embed Pods Frameworks */,
+				6285EBEF2BE1643C3800266C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -180,13 +212,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6285EBEF2BE1643C3800266C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FitPlanJSONtoTableView/Pods-FitPlanJSONtoTableView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91AFDD8E8FCE06A830DCB4BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E9E7CED340CA33389548CB56 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FitPlanJSONtoTableView/Pods-FitPlanJSONtoTableView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		57200ED91EC63D2700B4D79A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57200EE81EC63D2700B4D79A /* ViewController.m in Sources */,
+				57200EE81EC63D2700B4D79A /* ClassesTableViewController.m in Sources */,
 				57200EE51EC63D2700B4D79A /* AppDelegate.m in Sources */,
+				57200F0C1EC937D600B4D79A /* LoginViewController.m in Sources */,
 				57200EE21EC63D2700B4D79A /* main.m in Sources */,
 				57200F051EC7C3A400B4D79A /* NetworkingHelper.m in Sources */,
 				57200F021EC7B5C900B4D79A /* DetailViewController.m in Sources */,
@@ -307,6 +388,7 @@
 		};
 		57200EF51EC63D2700B4D79A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57433BDBBDF481E944C31D1F /* Pods-FitPlanJSONtoTableView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = U6J9N2F6E2;
@@ -319,6 +401,7 @@
 		};
 		57200EF61EC63D2700B4D79A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B04DD9AB7466DE206DE68007 /* Pods-FitPlanJSONtoTableView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = U6J9N2F6E2;
@@ -348,6 +431,7 @@
 				57200EF61EC63D2700B4D79A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
